@@ -45,9 +45,7 @@ local function main(instance)
 	function ply:giveWeapon(weapon)
 		local plyr = getply(self)
 		checkpermission(instance,plyr,"entities.giveWeapon")
-		print("passed perm check")
 		checkluatype(weapon,TYPE_STRING)
-		print("passed luatype check")
 		if not validweps[weapon] then return end -- I don't want to thrown an error here, so people can reuse their scripts with different addons installed
 		local wep = validweps[weapon]
 		if (wep.Admin and not plyr:IsAdmin()) or (not wep.Spawnable and not plyr:IsAdmin()) then return end
