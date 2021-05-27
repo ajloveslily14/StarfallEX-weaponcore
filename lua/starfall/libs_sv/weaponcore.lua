@@ -8,7 +8,7 @@ local function main(instance)
 	local checkluatype = SF.CheckLuaType
 	local checktype = instance.CheckType
 	local checkpermission = instance.player ~= NULL and SF.Permissions.check or function() end
-	local getply = instance.Types.Player.GetPlayer
+	local getply = instance.Types.Player.Unwrap
 	local entunwrap = instance.Types.Entity.Unwrap
 	
 
