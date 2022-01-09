@@ -4,7 +4,7 @@ SF.Permissions.registerPrivilege("entities.giveWeapon","Give weapon","Allows the
 
 
 local function main(instance)
-	local ply = instance.Types.Player.Methods
+	local player_methods = instance.Types.Player.Methods
 	local checkluatype = SF.CheckLuaType
 	local checktype = instance.CheckType
 	local checkpermission = instance.player ~= NULL and SF.Permissions.check or function() end
@@ -22,7 +22,7 @@ local function main(instance)
 	--- Gives player ammo
 	-- @param string typ
 	-- @param number ammt
-	function ply:giveAmmo(typ,ammt)
+	function player_methods:giveAmmo(typ,ammt)
 		local plyr = getply(self)
 		checkpermission(instance,plyr,"entities.giveAmmo")
 		checkluatype(typ,TYPE_STRING)
@@ -42,7 +42,7 @@ local function main(instance)
 
 	-- Gives player weapon
 	-- @param string weapon
-	function ply:giveWeapon(weapon)
+	function player_methods:giveWeapon(weapon)
 		local plyr = getply(self)
 		checkpermission(instance,plyr,"entities.giveWeapon")
 		checkluatype(weapon,TYPE_STRING)
